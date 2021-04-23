@@ -1,0 +1,50 @@
+body {
+background-color: #FDE7F9;
+}
+.all_buttons{
+background-color:powderblue;
+width : 100px;
+}
+
+th, td {
+   position: relative;
+  border: 3px solid #757575;
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+  top :150px;
+}
+
+#installBuildForm {
+    display : none
+}
+#cancelInstall{
+  height : 20px;
+  width : 80px
+}
+div#index_main{
+ position : relative;
+ left : 2%;
+top:50px;
+
+}
+
+
+#getAllButton{
+position: absolute;
+top: 130px;
+}
+ div#AllBuilds {
+    position: relative;
+
+  }
+
+  table#table1 {
+    position: absolute;
+ }
+
+
+
+
+

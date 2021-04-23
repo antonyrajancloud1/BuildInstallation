@@ -1,0 +1,12 @@
+body {
+background-color: red;
+}
+.all_buttons{
+background-color:powderblue;
+
+width : 100px;
+}
+table, th, td {
+  border: 1px solid black;
+
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+   <title>Install Build</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+
+</head>
+   <body  >
+      <div id="index_main">
+         <p> <button class="all_buttons" onclick="installBuildForm()">InstallBuild</button></p>
+            <form id="installBuildForm" action = "http://sdpod-auto1:8001/index" method = "post">
+               <p>
+                  URL : <input type = "url"  required="required" name = "url" />
+                  DB name : <input type = "text" required="required"  name = "db" />
+                  PORT : <input type="number"  required="required" min="4000" max="9999" name = "port" />
+
+                  <input type = "submit"  class="all_buttons" value = "install" />
+                  <button type="reset" value="Reset" class="all_buttons" onclick="cancelInstall()">cancel</button>
+
+               </p>
+            </form>
+            <button  value="Get Running Builds" class="all_buttons" onclick="GetAllRunningBuilds()">Get Running Builds</button>
+
+          <div id="RunningBuilds" >
+              <table >
+                  <tr>
+                    <th>Build Name</th>
+                    <th>Port</th>
+                    <th>DBName</th>
+                    <th>Options</th>
+
+                  </tr>
+
+
+                  {% for build in ListOfBuilds %}
+                          <tr>
+                             <td>{{build[0]}}</td>
+                              <td>{{build[1]}}</td>
+                             <td>{{build[2]}}</td>
+                             <td><button class="all_buttons icon" id = {{build[0]}} onclick="StopBuild(this.id)">stop</button></td>
+                         </tr>
+
+                 {% endfor %}
+
+
+
+              </table>
+          </div>
+
+
+          <div  id="AllBuilds" >
+              <button class="all_buttons" onclick="GetallBuilds()" id="getAllButton">Get all Builds</button>
+              <table  id="table1">
+                  <tr>
+                    <th>Build Name</th>
+                    <th>Options</th>
+                  </tr>
+
+
+                  {% for Allbuild in GetAllBuilds %}
+                          <tr>
+                             <td>{{Allbuild}}</td>
+
+                             <td><button class="icon all_buttons"  id = {{Allbuild}}  onclick="StartBuild(this.id)">start</button>
+
+                             </td>
+                         </tr>
+
+                 {% endfor %}
+              </table>
+          </div>
+      </div>
+      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+       <script src="/static/js/index.js" charset="utf-8"></script>
+
+   </body>
+</html>
